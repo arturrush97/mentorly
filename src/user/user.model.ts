@@ -1,17 +1,7 @@
 import { IsEmail } from "class-validator";
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from "typeorm";
 
-
-enum USER_TYPE {
-    MENTOR = 'mentor',
-    MENTEE = 'mentee'
-} 
-
-enum WORKING_FIELD {
-    IT = 'IT',
-    PM = 'Project Management',
-    DA = 'Data Analyst'
-}
+import { USER_TYPE, WORKING_FIELD } from "src/enumConfigs/enum";
 
 @Entity()
 export class User {
