@@ -26,4 +26,8 @@ export class UserService {
         });  
     }
 
+    
+    async getAllUsers() {
+        return await this.usersRepository.find(); 
+    }
 }
