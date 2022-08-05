@@ -11,6 +11,6 @@ export class HashService {
     }
 
     async comparePassword(dbUser: User, user: loginDto) {
-        return bcrypt.compare(user.password, dbUser.password) 
+            return bcrypt.compare(user.password, dbUser.password) 
     }
 }

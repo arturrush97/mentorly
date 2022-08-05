@@ -22,13 +22,16 @@ export class JwtAuthGuard implements CanActivate {
                 throw new UnauthorizedException({ amessage: "User is not authenticated" });   
             } 
             const parsedToken = await this.jwtUtil.verifyToekn(token);
-
-            const user  = await this.userService.getUserByEmail(parsedToken.email)
-            req.user = user
+            const user  = await this.userService.getUserByEmail(parsedToken.email);
+            
+            if (!user) {
+                return false;
+            }
+            req.user = user;
             return true;
 
         } catch (execption) {
-            throw new UnauthorizedException({ amessage: "User is not authenticated" })
+            throw new UnauthorizedException({ amessage: "User is not authenticated" });
         }
     }
     

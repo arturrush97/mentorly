@@ -1,7 +1,8 @@
-import { Controller, Get, Req, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Put, Req, UseGuards, Query } from '@nestjs/common';
 import { Request } from 'express';
 
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
+import { UpdateUserDto, UserSearchDto } from './dto/create.user.dto';
 import { User } from './user.model';
 import { UserService } from './user.service';
 
@@ -26,5 +27,17 @@ export class UserController {
     @UseGuards(JwtAuthGuard)
     getAll() {
         return this.userService.getAllUsers();
+    }
+
+    @Get('')
+    @UseGuards(JwtAuthGuard)
+    searchUser(@Query() query: UserSearchDto) {
+        return this.userService.searchUser(query)
+    }
+
+    @Put('update')
+    @UseGuards(JwtAuthGuard)
+    updateUser(@Req() req: RequestWithUser, @Body() requestBody: UpdateUserDto) {
+        return this.userService.updateUser(requestBody, req.user);
     }
 }

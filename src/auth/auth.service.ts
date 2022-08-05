@@ -16,9 +16,14 @@ export class AuthService {
 
     async login(user: loginDto) {
         const condidate = await this.userService.getUserByEmail(user.email);
+
+        if (!condidate) {
+            throw new HttpException('User does not exists', HttpStatus.BAD_REQUEST);
+        }
+
         const passwordEqual = await this.hashService.comparePassword(condidate, user);
 
-        if (!condidate || !passwordEqual) {
+        if (!passwordEqual) {
             throw new UnauthorizedException('Incorect password or email');
         }
 
