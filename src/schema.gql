@@ -1,0 +1,56 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  id: ID!
+  name: String!
+  surname: String!
+  user_type: String!
+  position: String!
+  working_field: String!
+  plans: String!
+  email: String!
+  education: String!
+  experience: String!
+  about: String!
+}
+
+type Login {
+  user: User!
+  authToken: String!
+}
+
+type Register {
+  user: User!
+  authToken: String!
+}
+
+type Query {
+  user: User!
+  Login(loginUserData: LoginInput!): Login!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+type Mutation {
+  registration(createUserInput: RegistrationInput!): Register!
+}
+
+input RegistrationInput {
+  name: String!
+  surname: String!
+  user_type: String!
+  position: String!
+  working_field: String!
+  plans: String!
+  email: String!
+  education: String!
+  experience: String!
+  about: String!
+  password: String!
+  confirmPassword: String!
+}
