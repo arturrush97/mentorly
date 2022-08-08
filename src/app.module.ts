@@ -4,8 +4,6 @@ import { Module } from '@nestjs/common';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { GraphQLModule } from '@nestjs/graphql';
 
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
 import { DbconfigModule } from './dbconfig/dbconfig.module';
 import { AuthModule } from './auth/auth.module';
@@ -29,9 +27,8 @@ import { AuthService } from './auth/auth.service';
     AuthModule,
     UtilsModule,
   ],
-  controllers: [AppController],
+  controllers: [],
   providers: [
-    AppService,
     UtilsService,
     AuthService,
     UserResolver,
