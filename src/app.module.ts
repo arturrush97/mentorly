@@ -7,7 +7,6 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { UserModule } from './user/user.module';
 import { DbconfigModule } from './dbconfig/dbconfig.module';
 import { AuthModule } from './auth/auth.module';
-import { UtilsService } from './utils/utils.service';
 import { UtilsModule } from './utils/utils.module';
 
 import { UserResolver } from './user/graphQl/user.resolver';
@@ -29,7 +28,6 @@ import { AuthService } from './auth/auth.service';
   ],
   controllers: [],
   providers: [
-    UtilsService,
     AuthService,
     UserResolver,
     AuthResolver,

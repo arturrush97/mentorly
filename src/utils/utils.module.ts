@@ -1,12 +1,11 @@
 import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { JwtUtilService } from './jwt.service';
-import { UtilsService } from './utils.service';
 import { HashService } from './hash.service';
 
 @Module({
-  providers: [UtilsService, JwtUtilService, HashService],
-  exports: [UtilsService, JwtUtilService, HashService],
+  providers: [JwtUtilService, HashService],
+  exports: [JwtUtilService, HashService],
   imports: [
     JwtModule.register({
       secret: process.env.JWT_PRIVATE_KEY || 'top_secret',
