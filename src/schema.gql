@@ -20,6 +20,11 @@ type Users {
   users: [User!]!
 }
 
+type UpdatedUser {
+  user: User!
+  authToken: String
+}
+
 type Login {
   user: User!
   authToken: String!
@@ -34,7 +39,14 @@ type Query {
   user: User!
   users: Users!
   me: User!
+  find(searchUser: SeachUser!): [User!]!
   Login(loginUserData: LoginInput!): Login!
+}
+
+input SeachUser {
+  name: String
+  position: String
+  user_type: String
 }
 
 input LoginInput {
@@ -43,7 +55,21 @@ input LoginInput {
 }
 
 type Mutation {
+  update(updateUserInput: UserUpdateInput!): UpdatedUser!
   registration(createUserInput: RegistrationInput!): Register!
+}
+
+input UserUpdateInput {
+  name: String!
+  surname: String!
+  user_type: String!
+  position: String!
+  working_field: String!
+  plans: String!
+  email: String!
+  education: String!
+  experience: String!
+  about: String!
 }
 
 input RegistrationInput {

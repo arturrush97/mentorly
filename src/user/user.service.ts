@@ -37,7 +37,6 @@ export class UserService {
                 where: query
             }
         );
-
     }
 
     async updateUser(newUserData, user) {

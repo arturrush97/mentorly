@@ -48,3 +48,12 @@ export class Me {
     @Field(type => User)
     user: User
 } 
+
+@ObjectType()
+export class UpdatedUser {
+    @Field(type => User)
+    user: User
+
+    @Field({ nullable: true })
+    authToken: string;
+} 
