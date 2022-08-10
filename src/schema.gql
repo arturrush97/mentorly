@@ -16,6 +16,10 @@ type User {
   about: String!
 }
 
+type Users {
+  users: [User!]!
+}
+
 type Login {
   user: User!
   authToken: String!
@@ -28,6 +32,8 @@ type Register {
 
 type Query {
   user: User!
+  users: Users!
+  me: User!
   Login(loginUserData: LoginInput!): Login!
 }
 

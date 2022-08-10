@@ -35,5 +35,16 @@ export class User {
 
     @Field({ nullable: false })
     about: string;
-
 }
+
+@ObjectType()
+export class Users {
+    @Field(type => [User])
+    users: User[];
+}
+
+@ObjectType()
+export class Me {
+    @Field(type => User)
+    user: User
+} 

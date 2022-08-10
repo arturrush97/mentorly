@@ -25,6 +25,7 @@ import { AuthService } from './auth/auth.service';
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       debug: false,
       playground: true,
+      context: ({req}) => ({...req}),
     }),
     UserModule,
     DbconfigModule,
