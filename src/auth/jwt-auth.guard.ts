@@ -20,7 +20,6 @@ export class JwtAuthGuard implements CanActivate {
             const { req } = ctx.getContext();
             const token = req.headers.authorization.split(' ')[1];
 
-            
             if (!token) {
                 throw new UnauthorizedException({ amessage: "User is not authenticated" });   
             } 
@@ -35,7 +34,7 @@ export class JwtAuthGuard implements CanActivate {
             return true;
 
         } catch (execption) {
-            throw new UnauthorizedException({ amessage: "User is not authenticated aaaaaaaaaaaa" });
+            throw new UnauthorizedException({ amessage: "User is not authenticated" });
         }
     }
     
